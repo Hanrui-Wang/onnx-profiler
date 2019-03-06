@@ -21,3 +21,7 @@ class OperationsProfiler(DefaultProfiler):
         kernel_size = weights[0].size
         output_size = outputs[0].size
         return np.prod([output_size[0]] + kernel_size)
+
+    @staticmethod
+    def mul(attributes, weights, inputs, outputs, **kwargs):
+        return np.max([np.prod(input.size) for input in inputs]).astype(np.int)
