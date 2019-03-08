@@ -1,3 +1,4 @@
+import copy
 from collections import deque
 
 import onnx
@@ -54,6 +55,10 @@ def onnx_profile(model, profiler, reduction=None, verbose=False):
 def torch_profile(model, inputs, profiler, reduction=None, verbose=False):
     import torch
     import torch.nn as nn
+
+    model = copy.deepcopy(model)
+    if isinstance(model, nn.DataParallel):
+        model = model.module
 
     queue = deque([model])
 
