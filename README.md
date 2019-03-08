@@ -12,11 +12,11 @@ pip install --upgrade git+https://github.com/zhijian-liu/onnx-profiler.git
 
 ## Getting Started (PyTorch)
 
-Before profiling, you should first define your PyTorch model and a (dummy) input that the model takes:
+Before profiling, you should first define your PyTorch model and a (dummy) input which the model takes:
 
 ```python
-import torch
 from torchvision.models import *
+import torch
 
 model = resnet18()
 inputs = torch.randn(1, 3, 224, 224)
@@ -25,19 +25,22 @@ inputs = torch.randn(1, 3, 224, 224)
 If you want to profile the number of parameters in your model,
 
 ```python
-import numpy as np
 from onnxp import *
+import numpy as np
 
 mults = torch_profile(model, inputs, profiler=OperationsProfiler, reduction=np.sum, verbose=True)
 ```
 
-Here, `verbose` is set to `True` to display the number of multiplications in each layer, and `reduction` is set to `np.sum` to sum up the computations in all layers.
+Here, we explain a little bit more on the parameters of `torch_profile`:
+
+* `verbose` is set to `True` to display the number of multiplications in each layer; alternatively, you can set to `False` if you do not want any intermediate outputs.
+* `reduction` is set to `np.sum` to sum up the computations in all layers; alternatively, you can set to `None` to obtain the computations in all layers (as a list).
 
 If you want to profile the number of parameters in your model,
 
 ```python
-import numpy as np
 from onnxp import *
+import numpy as np
 
 params = torch_profile(model, inputs, profiler=ParametersProfiler, reduction=np.sum, verbose=True)
 ```
@@ -45,8 +48,8 @@ params = torch_profile(model, inputs, profiler=ParametersProfiler, reduction=np.
 Similarly, if you want to display the output activation sizes of all layers in your model,
 
 ```python
-import numpy as np
 from onnxp import *
+import numpy as np
 
 torch_profile(model, inputs, profiler=ActivationProfile, verbose=True)
 ```
