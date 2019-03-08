@@ -4,7 +4,7 @@ This tool is used to profile the NN models (currently supporting ONNX and PyTorc
 
 ## Installation
 
-Using GitHub
+We recommend you to install the latest version of this package from GitHub:
 
 ```bash
 pip install --upgrade git+https://github.com/zhijian-liu/onnx-profiler.git
