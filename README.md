@@ -34,7 +34,7 @@ mults = torch_profile(model, inputs, profiler=OperationsProfiler, reduction=np.s
 Here, we explain a little bit more about the arguments of `torch_profile`:
 
 * `reduction` is set to `np.sum` to sum up the computations in all layers. If you want to keep the computations in all layers as a list, you can then set this argument to `None` (default).
-* `verbose` is set to `True` to display the number of multiplications in each layer; alternatively, you can also set it to `False` (default) if you do not want any intermediate output.
+* `verbose` is set to `True` to display the number of multiplications in each layer; alternatively, you can set it to `False` (default) if you do not want any intermediate output.
 
 Similarly, if you want to profile the number of parameters in your model,
 
