@@ -30,5 +30,8 @@ setup(
         'onnxp',
         'onnxp.profilers'
     ],
-    install_requires=['onnx']
+    install_requires=[
+        'numpy',
+        'onnx'
+    ]
 )
