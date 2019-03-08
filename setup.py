@@ -1,29 +1,31 @@
+import os
+
 from setuptools import setup, find_packages
 
-readme = open('README.md').read()
+version_file = 'onnxp/version.py'
+exec(open(version_file).read())
 
-VERSION = '0.0.1'
-
-requirements = [
-    'onnx'
-]
+long_description = ''
+if os.path.exists('README.md'):
+    with open('README.md', 'r') as fp:
+        long_description = fp.read()
 
 setup(
     name='onnxp',
-    version=VERSION,
+    version=__version__,
+    description='A simple yet useful profiler for NN models.',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     author='Zhijian Liu',
     author_email='zhijianliu.cs@gmail.com',
-    url='https://github.com/Lyken17/pytorch-OpCounter/',
-    description='A simple yet useful profiler for NN models (currently supporting ONNX and PyTorch models).',
-    long_description=readme,
     license='MIT',
-
-    packages=find_packages(exclude=('*test*',)),
-
-    zip_safe=True,
-    install_requires=requirements,
-
+    url='https://github.com/zhijian-liu/onnx-profiler',
     classifiers=[
-        'Programming Language :: Python :: 3'
-    ]
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7'
+    ],
+    packages=['onnxp'],
+    install_requires=['onnx'],
 )
