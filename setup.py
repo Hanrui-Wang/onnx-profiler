@@ -1,6 +1,6 @@
 import os
 
-from setuptools import setup, find_packages
+from setuptools import setup
 
 version_file = 'onnxp/version.py'
 exec(open(version_file).read())
@@ -27,5 +27,5 @@ setup(
         'Programming Language :: Python :: 3.7'
     ],
     packages=['onnxp'],
-    install_requires=['onnx'],
+    install_requires=['onnx']
 )
