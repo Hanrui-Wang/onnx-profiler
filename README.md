@@ -36,7 +36,7 @@ Here, we explain a little bit more on the arguments of the function `torch_profi
 * `verbose` is set to `True` to display the number of multiplications in each layer; alternatively, you can set it to `False` if you do not want any intermediate outputs.
 * `reduction` is set to `np.sum` to sum up the computations in all layers. If you want to obtain the computations in all layers (as a list), you can set this argument to `None`.
 
-If you want to profile the number of parameters in your model,
+Similarly, if you want to profile the number of parameters in your model,
 
 ```python
 from onnxp import *
@@ -45,7 +45,7 @@ import numpy as np
 params = torch_profile(model, inputs, profiler=ParametersProfiler, reduction=np.sum, verbose=True)
 ```
 
-Similarly, if you want to display the output activation sizes of all layers in your model,
+If you want to display the output activation sizes of all layers in your model,
 
 ```python
 from onnxp import *
