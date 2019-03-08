@@ -26,6 +26,9 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7'
     ],
-    packages=['onnxp'],
+    packages=[
+        'onnxp',
+        'onnxp.profilers'
+    ],
     install_requires=['onnx']
 )
