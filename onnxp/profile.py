@@ -61,7 +61,6 @@ def torch_profile(model, inputs, profiler, reduction=None, verbose=False):
         model = model.module
 
     queue = deque([model])
-
     while queue:
         x = queue.popleft()
 

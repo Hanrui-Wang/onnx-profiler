@@ -19,7 +19,7 @@ class Module:
 
 
 class Model:
-    def __init__(self, model, remove_batchnorms=False, propagate_size=False):
+    def __init__(self, model, remove_batchnorms=True, propagate_size=True):
         self.model = model
 
         self.parse_variables()
