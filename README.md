@@ -12,7 +12,7 @@ pip install --upgrade git+https://github.com/zhijian-liu/onnx-profiler.git
 
 ## Usage
 
-Before profiling, you should first define the model and a (dummy) input the model takes:
+Before profiling, you should first define the PyTorch model and a (dummy) input the model takes:
 
 ```python
 import torch
@@ -22,7 +22,7 @@ model = resnet18()
 inputs = torch.randn(1, 3, 224, 224)
 ```
 
-As for the number of parameters, you might use the following command:
+As for the number of multiplications, you might use the following command (where `verbose` is set to `True` to display the computations in each layer, and `reduction` is set to `np.sum` to sum up the computations in all layers):
 
 ```python
 import numpy as np
@@ -31,7 +31,7 @@ from onnxp import *
 mults = torch_profile(model, inputs, profiler=OperationsProfiler, reduction=np.sum, verbose=True)
 ```
 
-Similarly, for the number of parameters, you might use the following command:
+For the number of parameters, you might similarly use the following command:
 
 ```python
 import numpy as np
