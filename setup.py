@@ -27,7 +27,6 @@ setup(
         'Programming Language :: Python :: 3.7'
     ],
     packages=[
-        'onnxp',
         'onnxp.profilers'
     ],
     install_requires=[

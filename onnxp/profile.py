@@ -56,14 +56,13 @@ def torch_profile(model, inputs, profiler, reduction=None, verbose=False):
     import torch
     import torch.nn as nn
 
+    model = copy.deepcopy(model)
     if isinstance(model, nn.DataParallel):
         model = model.module
-    
-    print('model', model)
+
     queue = deque([model])
     while queue:
         x = queue.popleft()
-        print('x', x)
 
         for module in x._modules.values():
             if isinstance(module, (nn.MaxPool1d, nn.MaxPool2d, nn.MaxPool3d)):
