@@ -56,7 +56,6 @@ def torch_profile(model, inputs, profiler, reduction=None, verbose=False):
     import torch
     import torch.nn as nn
 
-    model = copy.deepcopy(model)
     if isinstance(model, nn.DataParallel):
         model = model.module
 
