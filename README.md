@@ -51,7 +51,7 @@ Further, if you want to display the output activation sizes of all layers in you
 from onnxp import *
 import numpy as np
 
-torch_profile(model, inputs, profiler=ActivationProfile, verbose=True)
+torch_profile(model, inputs, profiler=ActivationProfiler, verbose=True)
 ```
 
 ## License
